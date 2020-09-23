@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'rest_framework',
-    'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -41,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'blog.apps.BlogConfig',
     'polls.apps.PollsConfig',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -59,8 +61,7 @@ ROOT_URLCONF = 'blog_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-         'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,10 +83,10 @@ WSGI_APPLICATION = 'blog_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
-REST_FRAMEWORK = { }
+REST_FRAMEWORK = {}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -125,15 +126,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT=os.path.join(BASE_DIR,"media")
-MEDIA_URL="/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
-CRISPY_TEMPALTE_PACK ="bootstrap4"
+CRISPY_TEMPALTE_PACK = "bootstrap4"
 LOGIN_URL = "login"
-LOGIN_REDIRECT_URL ="blog-home"
+LOGIN_REDIRECT_URL = "blog-home"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'angdembeparuhang@gmail.com'

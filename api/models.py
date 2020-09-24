@@ -6,4 +6,10 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    # date_posted= models.DateTimeField(default= timezone.now)
+
+class Category(models.Model):
+    title=models.CharField(max_length=30)
+    description=models.TextField()
+
+class Tag(models.Model):
+    title=models.CharField(max_length=30)
